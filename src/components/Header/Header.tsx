@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { cnHeader } from './Header.classname';
-import { fetchHeaderData } from './../../store/Header/HeaderSlice';
-import { AppDispatch } from '../../store/store';
+import { Cart } from '../Cart/Cart';
+import { fetchHeaderData } from '../../store/Header/thunks';
+import { AppDispatch, RootState } from '../../store/store';
 import { ROUTES } from '../../utils/routes';
-import { RootState } from '../types/ReduxTypes';
+
 import userAvatarUrl from '../../assets/image/user-avatar.png';
 import openMenuIcon from '../../assets/image/drop-menu.png';
 import closeMenuIcon from '../../assets/image/drop-menu-close.png';
 
 import './Header.css';
-import { Cart } from '../Cart/Cart';
 
 type HeaderProps = {
     isReady: boolean
 }
 
-const Header: FC<HeaderProps> = ({isReady}) => {
+const Header: FC<HeaderProps> = ({ isReady }) => {
     const dispatch = useDispatch<AppDispatch>();
     const { LogoImg, UsedGuid, UserName, status, error } = useSelector((state: RootState) => state.header);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);

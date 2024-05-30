@@ -3,11 +3,7 @@ import type { HeaderRequest } from '../../components/types/Requests';
 
 export type statusesHeaderResponse = 'idle' | 'loading' | 'succeeded' | 'failed';
 
-export type InitialHeaderState = HeaderRequest & { status: statusesHeaderResponse, error: null | string | undefined };
-
-export type RootState = {
-    header: InitialHeaderState;
-};
+export type HeaderState = HeaderRequest & { status: statusesHeaderResponse, error: null | string | undefined };
 
 export type CartProduct = {
     Id: number,
@@ -15,7 +11,7 @@ export type CartProduct = {
     Description: string,
     Quantity: number;
     Unit: string;
-    Сurrency: string;
+    Currency: string;
     Price: number;
     DiscountedPrice: number;
     Images: [
@@ -32,7 +28,3 @@ export type InitialCartState = {
     loading: boolean;
     error: null | undefined | string;
 }
-
-export type RootCartState = {
-    cart: InitialCartState;
-};

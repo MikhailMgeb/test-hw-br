@@ -2,8 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { cnCart } from './Cart.classname';
-import { fetchCartProducts } from '../../store/Cart/cartSlice';
-import { RootCartState } from '../types/ReduxTypes';
+import { fetchCartProducts } from '../../store/Cart';
 import { AppDispatch } from '../../store/store';
 
 import './Cart.css';
