@@ -1,0 +1,67 @@
+.Header {
+    display: flex;
+    position: fixed;
+    min-width: 100%;
+    justify-content: space-evenly;
+    background-color: #fff;
+    height: 60px;
+    align-items: center;
+}
+
+.Header-Logo {
+    height: 60px;
+}
+
+.Header-LogoImage {
+    height: 60px;
+    width: 60px;
+}
+
+.Header-UserImage {
+    height: 45px;
+    width: 45px;
+}
+
+.Header-User {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.Header-Dropdown {
+    position: relative;
+}
+
+.Header-DropMenuButton {
+    padding: 5px;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.Header-DropdownTitle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.Header-DropdownMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+
+    position: absolute;
+    max-width: 350px;
+    top: 50px;
+    border-radius: 16px;
+}
+
+.Header-DropdownItem {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.Header-DropdownItem:hover {
+    background-color: gray;
+}
