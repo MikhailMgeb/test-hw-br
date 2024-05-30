@@ -2,10 +2,11 @@ import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { cnCart } from './Cart.classname';
-import { fetchCartProducts } from '../../store/Cart';
-import { AppDispatch } from '../../store/store';
+import { fetchCartProducts } from '../../store/Cart/thunks';
+import { AppDispatch, RootState } from '../../store/store';
 
 import './Cart.css';
+
 
 type CartProps = {
     isFull: boolean;
@@ -13,21 +14,21 @@ type CartProps = {
 
 const Cart: FC<CartProps> = ({ isFull }) => {
     const dispatch = useDispatch<AppDispatch>();
-    useSelector((state) => console.log(state));
+    const { products, loading, error } = useSelector((state: RootState) => state.cart);
 
-    // console.log(products)
+    console.log(products)
 
-    // useEffect(() => {
-    //     dispatch(fetchCartProducts());
-    // }, [dispatch, isFull]);
+    useEffect(() => {
+        dispatch(fetchCartProducts());
+    }, [dispatch, isFull]);
 
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-    // if (error) {
-    //     return <div>Error: {error}</div>;
-    // }
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     return (
         <section className={cnCart()}>

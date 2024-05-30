@@ -1,23 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { BASE_URL } from '../../utils/constants';
-import { InitialCartState } from '../../components/types/ReduxTypes';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-const urlCart = `${BASE_URL}/ShoppingCart/products`;
+import { CartProduct, InitialCartState } from '../../components/types/ReduxTypes';
 
-export const fetchCartProducts = createAsyncThunk(
-    'cart/fetchCartProducts',
-    async () => {
-        try {
-            const response = await fetch(urlCart);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-);
 
-const initialState: InitialCartState = {
+
+const INITIAL_STATE: InitialCartState = {
     products: [],
     loading: false,
     error: null,
@@ -25,26 +12,22 @@ const initialState: InitialCartState = {
 
 const cartSlice = createSlice({
     name: 'cart',
-    initialState,
+    initialState: INITIAL_STATE,
     reducers: {
-    },
-    extraReducers: (builder) => {
-        builder.addCase(fetchCartProducts.pending, (state) => {
+        getProductsCart: (state, action: PayloadAction<CartProduct[]>) => {
+            state.products = action.payload;
+        },
+        startLoading: (state) => {
             state.loading = true;
-            state.error = null;
-        })
-        builder.addCase(fetchCartProducts.fulfilled, (state, action) => {
+        },
+        finishLoading: (state) => {
             state.loading = false;
-            console.log(action.payload)
-            state.products = action.payload.products;
-        })
-        builder.addCase(fetchCartProducts.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.payload as string;
-        });
+        },
     },
 });
 
+
+export const { getProductsCart, startLoading, finishLoading } = cartSlice.actions;
 const cartReducer = cartSlice.reducer;
 
 export { cartReducer };
