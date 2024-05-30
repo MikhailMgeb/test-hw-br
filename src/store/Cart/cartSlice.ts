@@ -25,25 +25,23 @@ const initialState: InitialCartState = {
 
 const cartSlice = createSlice({
     name: 'cart',
-    initialState: {
-        initialState
-    },
+    initialState,
     reducers: {
     },
     extraReducers: (builder) => {
-        builder
-            .addCase(fetchCartProducts.pending, (state) => {
-                state.initialState.loading = true;
-                state.initialState.error = null;
-            })
-            .addCase(fetchCartProducts.fulfilled, (state, action) => {
-                state.initialState.loading = false;
-                state.initialState.products = action.payload;
-            })
-            .addCase(fetchCartProducts.rejected, (state, action) => {
-                state.initialState.loading = false;
-                state.initialState.error = action.error.message;
-            });
+        builder.addCase(fetchCartProducts.pending, (state) => {
+            state.loading = true;
+            state.error = null;
+        })
+        builder.addCase(fetchCartProducts.fulfilled, (state, action) => {
+            state.loading = false;
+            console.log(action.payload)
+            state.products = action.payload.products;
+        })
+        builder.addCase(fetchCartProducts.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload as string;
+        });
     },
 });
 

@@ -15,10 +15,10 @@ import './Header.css';
 import { Cart } from '../Cart/Cart';
 
 type HeaderProps = {
-    isFull: boolean
+    isReady: boolean
 }
 
-const Header: FC<HeaderProps> = ({isFull}) => {
+const Header: FC<HeaderProps> = ({isReady}) => {
     const dispatch = useDispatch<AppDispatch>();
     const { LogoImg, UsedGuid, UserName, status, error } = useSelector((state: RootState) => state.header);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -66,7 +66,7 @@ const Header: FC<HeaderProps> = ({isFull}) => {
                     : null}
 
             </div>
-            <Cart isFull={isFull} />
+            <Cart isFull={isReady} />
         </div>
     );
 }
