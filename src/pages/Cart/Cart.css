@@ -1,0 +1,16 @@
+.Cart {
+    min-width: 600px;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.Cart-CartTitle {
+    background-color: #fff;
+    border-radius: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 16px 20px;
+    display: flex;
+}

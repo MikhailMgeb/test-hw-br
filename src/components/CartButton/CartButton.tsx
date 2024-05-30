@@ -1,22 +1,22 @@
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { cnCart } from './Cart.classname';
+import { cnCartButton } from './CartButton.classname';
 import { fetchCartProducts } from '../../store/Cart/thunks';
 import { AppDispatch, RootState } from '../../store/store';
+import CartButtonIcon from '../../assets/image/cart-icon.png'
+import { ROUTES } from '../../utils/routes';
 
-import './Cart.css';
+import './CartButton.css';
 
-
-type CartProps = {
+type CartButtonProps = {
     isFull: boolean;
 }
 
-const Cart: FC<CartProps> = ({ isFull }) => {
+const CartButton: FC<CartButtonProps> = ({ isFull }) => {
     const dispatch = useDispatch<AppDispatch>();
     const { products, loading, error } = useSelector((state: RootState) => state.cart);
-
-    console.log(products)
 
     useEffect(() => {
         dispatch(fetchCartProducts());
@@ -31,10 +31,14 @@ const Cart: FC<CartProps> = ({ isFull }) => {
     }
 
     return (
-        <section className={cnCart()}>
-            <h2 className={cnCart('Title')}>Твоя корзина</h2>
+        <section className={cnCartButton()}>
+            <button className={cnCartButton('Button')}>
+                <Link to={ROUTES.CART}>
+                    <img className={cnCartButton('image')} src={CartButtonIcon} alt='CartButton' />
+                </Link>
+            </button>
         </section>
     );
 }
 
-export { Cart };
+export { CartButton };

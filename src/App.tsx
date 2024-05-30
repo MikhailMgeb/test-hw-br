@@ -25,7 +25,7 @@ const App = () => {
     <div className={cnApp()}>
       <Header isReady={isReadyCart} dropMenuContent={textsDropMenu} />
       <div className={cnApp('Container')}>
-        <SideBar />
+        {/* <SideBar /> */}
         <AppRoutes />
       </div>
       <Footer />

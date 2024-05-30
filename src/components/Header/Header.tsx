@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { uid } from 'uid/single'
 
 import { cnHeader } from './Header.classname';
-import { Cart } from '../Cart/Cart';
+import { CartButton } from '../CartButton/CartButton';
 import { fetchHeaderData } from '../../store/Header/thunks';
 import { AppDispatch, RootState } from '../../store/store';
 import { ROUTES } from '../../utils/routes';
@@ -64,11 +65,11 @@ const Header: FC<HeaderProps> = ({ isReady, dropMenuContent }) => {
                 </div>
                 {isDropdownOpen ?
                     <ul className={cnHeader('DropdownMenu')}>
-                        {dropMenuContent.map(text => <DropdownItem content={text} />)}
+                        {dropMenuContent.map(text => <DropdownItem content={text} key={uid()} />)}
                     </ul>
                     : null}
             </div>
-            <Cart isFull={isReady} />
+            <CartButton isFull={isReady} />
         </div>
     );
 }
