@@ -56,12 +56,3 @@
     top: 50px;
     border-radius: 16px;
 }
-
-.Header-DropdownItem {
-    border: 1px solid black;
-    padding: 10px;
-}
-
-.Header-DropdownItem:hover {
-    background-color: gray;
-}
