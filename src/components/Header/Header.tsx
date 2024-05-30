@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,10 +11,14 @@ import userAvatarUrl from '../../assets/image/user-avatar.png';
 import openMenuIcon from '../../assets/image/drop-menu.png';
 import closeMenuIcon from '../../assets/image/drop-menu-close.png';
 
-
 import './Header.css';
+import { Cart } from '../Cart/Cart';
 
-const Header = () => {
+type HeaderProps = {
+    isFull: boolean
+}
+
+const Header: FC<HeaderProps> = ({isFull}) => {
     const dispatch = useDispatch<AppDispatch>();
     const { LogoImg, UsedGuid, UserName, status, error } = useSelector((state: RootState) => state.header);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -60,7 +64,9 @@ const Header = () => {
                         <li className={cnHeader('DropdownItem')}>Потому что Мгебришвили Михаил очень хочет работать у вас!</li>
                     </ul>
                     : null}
+
             </div>
+            <Cart isFull={isFull} />
         </div>
     );
 }
