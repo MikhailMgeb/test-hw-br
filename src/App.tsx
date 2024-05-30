@@ -6,6 +6,7 @@ import { SideBar } from './components/SideBar/SideBar';
 import { Footer } from './components/Footer/Footer';
 import { cnApp } from './App.classname';
 import { BASE_URL } from './utils/constants';
+import { textsDropMenu } from './utils/content';
 
 import './App.css';
 
@@ -18,13 +19,11 @@ const App = () => {
     })
       .then(response => response.json())
       .then(isReady => setIsReadyCart(isReady))
-  }, [])
-
-  console.log(isReadyCart)
+  }, []);
 
   return (
     <div className={cnApp()}>
-      <Header isReady={isReadyCart} />
+      <Header isReady={isReadyCart} dropMenuContent={textsDropMenu} />
       <div className={cnApp('Container')}>
         <SideBar />
         <AppRoutes />
