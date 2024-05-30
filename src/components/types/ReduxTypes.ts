@@ -8,3 +8,31 @@ export type InitialHeaderState = HeaderRequest & { status: statusesHeaderRespons
 export type RootState = {
     header: InitialHeaderState;
 };
+
+type CartProduct = {
+    Id: number,
+    Name: string,
+    Description: string,
+    Quantity: number;
+    Unit: string;
+    Сurrency: string;
+    Price: number;
+    DiscountedPrice: number;
+    Images: [
+        {
+            FileName: string;
+            FileExtension: string;
+            Image: string;
+        }
+    ]
+}
+
+export type InitialCartState = {
+    products: CartProduct[];
+    loading: boolean;
+    error: null | undefined | string;
+}
+
+export type RootCartState = {
+    cart: InitialCartState;
+};
