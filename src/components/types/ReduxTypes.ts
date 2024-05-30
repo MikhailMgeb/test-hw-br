@@ -9,7 +9,7 @@ export type RootState = {
     header: InitialHeaderState;
 };
 
-type CartProduct = {
+export type CartProduct = {
     Id: number,
     Name: string,
     Description: string,

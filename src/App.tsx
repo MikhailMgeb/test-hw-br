@@ -9,7 +9,6 @@ import { BASE_URL } from './utils/constants';
 
 import './App.css';
 
-
 const App = () => {
   const [isReadyCart, setIsReadyCart] = useState(false);
 
@@ -21,9 +20,11 @@ const App = () => {
       .then(isReady => setIsReadyCart(isReady))
   }, [])
 
+  console.log(isReadyCart)
+
   return (
     <div className={cnApp()}>
-      <Header isFull={isReadyCart} />
+      <Header isReady={isReadyCart} />
       <div className={cnApp('Container')}>
         <SideBar />
         <AppRoutes />

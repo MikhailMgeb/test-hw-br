@@ -12,25 +12,23 @@ type CartProps = {
     isFull: boolean;
 }
 
-const Cart: FC<CartProps> = ({isFull}) => {
+const Cart: FC<CartProps> = ({ isFull }) => {
     const dispatch = useDispatch<AppDispatch>();
-    const { products, loading, error } = useSelector((state: RootCartState) => state.cart);
+    useSelector((state) => console.log(state));
 
-    console.log(products, loading, error)
+    // console.log(products)
 
-    useEffect(() => {
-        if (loading === false) {
-            dispatch(fetchCartProducts());
-        }
-    }, []);
+    // useEffect(() => {
+    //     dispatch(fetchCartProducts());
+    // }, [dispatch, isFull]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
 
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+    // if (error) {
+    //     return <div>Error: {error}</div>;
+    // }
 
     return (
         <section className={cnCart()}>
