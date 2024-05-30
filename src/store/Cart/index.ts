@@ -1,8 +1,6 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CartProduct, InitialCartState } from '../../components/types/ReduxTypes';
-
-
 
 const INITIAL_STATE: InitialCartState = {
     products: [],

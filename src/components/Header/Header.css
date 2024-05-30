@@ -6,6 +6,8 @@
     background-color: #fff;
     height: 60px;
     align-items: center;
+    top: 0;
+    z-index: 1000;
 }
 
 .Header-Logo {
