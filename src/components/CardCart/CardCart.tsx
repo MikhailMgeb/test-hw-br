@@ -18,21 +18,22 @@ const CardCart: FC<CardCartProps> = ({ products }) => {
     const dispatch = useDispatch<AppDispatch>();
     const { Id, Name, Description, Quantity, Сurrency, Price, DiscountedPrice, Images } = products;
 
-    const getDeleteOneProductHandler = (id: number, UserGuid: string) => {
+    const getDeleteOneProductHandler = (Id: number, UserGuid: string) => {
         return () => {
             dispatch(fetchDeleteOneProduct({ Id, UserGuid }));
         }
     }
 
-    const getAddOneProductHandler = (id: number, UserGuid: string) => {
+    const getAddOneProductHandler = (Id: number, UserGuid: string) => {
         return () => {
             dispatch(fetchAddOneProduct({ Id, UserGuid }));
         }
     }
 
-    const handleRemoveProduct = (id: number, UserGuid: string) => {
+    const handleRemoveProduct = (Id: number, UserGuid: string) => {
         return () => {
             dispatch(fetchDeleteProduct({ Id, UserGuid }));
+
         }
     }
 

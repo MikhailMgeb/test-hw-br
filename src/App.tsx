@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { AppRoutes } from './Routes/Routes';
+import { useSelector } from 'react-redux';
 
+import { AppRoutes } from './Routes/Routes';
 import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
 import { BASE_URL } from './utils/constants';
 import { textsDropMenu } from './utils/content';
+
 import { cnApp } from './App.classname';
 
 import './App.css';
+
+
 
 const App = () => {
   const [isReadyCart, setIsReadyCart] = useState(false);
@@ -24,10 +27,8 @@ const App = () => {
     <div className={cnApp()}>
       <Header isReady={isReadyCart} dropMenuContent={textsDropMenu} />
       <div className={cnApp('Container')}>
-        {/* <SideBar /> */}
         <AppRoutes />
       </div>
-      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CartProduct, CreateProductPayload, InitialCartState } from '../../components/types/types';
+import { CartProduct, InitialCartState } from '../../components/types/types';
 
 const INITIAL_STATE: InitialCartState = {
     products: [],
@@ -13,7 +13,6 @@ const cartSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         getProductsCart: (state, action: PayloadAction<CartProduct[]>) => {
-            console.log(state.products);
             state.products = action.payload;
         },
         getMinusProduct: (state, action: PayloadAction<number>) => {

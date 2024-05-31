@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { cnCartButton } from './CartButton.classname';
 import { fetchGetCartProducts } from '../../store/FetchProducts/thunks';
 import { AppDispatch, RootState } from '../../store/store';
-import CartButtonIcon from '../../assets/image/cart-icon.png'
 import { ROUTES } from '../../utils/routes';
+import CartButtonIcon from '../../assets/image/cart-icon.png';
 
 import './CartButton.css';
 
