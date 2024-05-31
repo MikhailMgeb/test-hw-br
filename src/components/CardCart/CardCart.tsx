@@ -28,11 +28,12 @@ const CardCart: FC<CardCartProps> = ({ products }) => {
                     <span className={cnCardCart('QuantityValue')}>{Quantity}</span>
                     <button className={cnCardCart('QuantityPlus')}>+</button>
                 </div>
+                {Quantity > 1 ? <div>цена за 1 шт. <span>{Price}</span></div> : null}
             </div>
             <div className={cnCardCart('Details')}>
                 <div className={cnCardCart('DetailsPrice')}>
-                    <p className={cnCardCart('Discount')}>{DiscountedPrice}</p>
-                    <p className={cnCardCart('Price')}>{Math.floor(Price)}
+                    <p className={cnCardCart('Discount')}>{DiscountedPrice === 0 ? null : DiscountedPrice}</p>
+                    <p className={cnCardCart('Price')}>{Math.floor(Price * Quantity)}
                         <span> {Сurrency}</span>
                     </p>
                 </div>

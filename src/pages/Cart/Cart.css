@@ -6,12 +6,31 @@
     display: flex;
 }
 
-.Cart-CartTitle {
+.Cart-Container {
     background-color: #fff;
     border-radius: 12px;
     align-items: center;
     margin-bottom: 12px;
     padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Cart-CartClear {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.Cart-ButtonClear {
+    background-color: inherit;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Cart-ButtonClear:active {
+    background-color: #d6d6d6;
 }
 
 .Cart-List {
