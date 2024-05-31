@@ -10,8 +10,6 @@ import { cnApp } from './App.classname';
 
 import './App.css';
 
-
-
 const App = () => {
   const [isReadyCart, setIsReadyCart] = useState(false);
 
