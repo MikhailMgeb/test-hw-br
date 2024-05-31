@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { cnCartButton } from './CartButton.classname';
-import { fetchCartProducts } from '../../store/Cart/thunks';
+import { fetchGetCartProducts } from '../../store/FetchProducts/thunks';
 import { AppDispatch, RootState } from '../../store/store';
 import CartButtonIcon from '../../assets/image/cart-icon.png'
 import { ROUTES } from '../../utils/routes';
@@ -19,11 +19,11 @@ const CartButton: FC<CartButtonProps> = ({ isFull }) => {
     const { products, loading, error } = useSelector((state: RootState) => state.cart);
 
     useEffect(() => {
-        dispatch(fetchCartProducts());
+        dispatch(fetchGetCartProducts());
     }, [dispatch, isFull]);
 
-    if (loading) {
-        return <div>Loading...</div>;
+    if (products.length === 0) {
+        return <div>Корзина пуста</div>;
     }
 
     if (error) {

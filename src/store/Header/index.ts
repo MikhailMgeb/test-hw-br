@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { HeaderState } from '../../components/types/ReduxTypes';
+import { HeaderState } from '../../components/types/types';
 
 const initialState: HeaderState = {
     LogoImg: '',

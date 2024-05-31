@@ -25,7 +25,6 @@ const Header: FC<HeaderProps> = ({ isReady, dropMenuContent }) => {
     const dispatch = useDispatch<AppDispatch>();
     const { LogoImg, UserName, status, error } = useSelector((state: RootState) => state.header);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [dropMenuIcon, setDropMenuIcon] = useState(openMenuIcon);
 
     useEffect(() => {
         if (status === 'idle') {
@@ -35,15 +34,10 @@ const Header: FC<HeaderProps> = ({ isReady, dropMenuContent }) => {
 
     const handleOpenDropMenu = () => {
         setIsDropdownOpen((prev) => !prev);
-        if (isDropdownOpen === false) {
-            setDropMenuIcon(closeMenuIcon);
-        } else {
-            setDropMenuIcon(openMenuIcon);
-        }
     }
 
     if (error) {
-        return (<div>error</div>)
+        return (<div>error</div>);
     }
 
     return (
@@ -60,7 +54,7 @@ const Header: FC<HeaderProps> = ({ isReady, dropMenuContent }) => {
             <div className={cnHeader('Dropdown')}>
                 <div className={cnHeader('DropdownTitle')}>5 фактов об этом сайте
                     <button className={cnHeader('DropMenuButton')} onClick={handleOpenDropMenu}>
-                        <img src={dropMenuIcon} alt='drop-menu' />
+                        <img src={isDropdownOpen ? closeMenuIcon : openMenuIcon} alt='drop-menu' />
                     </button>
                 </div>
                 {isDropdownOpen ?

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { headerReducer } from './Header';
-import { cartReducer } from './Cart';
+import { cartReducer } from './FetchProducts';
 
 export const store = configureStore({
     reducer: {

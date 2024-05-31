@@ -62,3 +62,23 @@
 .CardCart-Discount {
     color: crimson;
 }
+
+.CardCart-Details {
+    min-width: 100px;
+}
+
+.CardCart-Quantity {
+    height: 80px;
+}
+
+.CardCart-QuantityMinus {
+    border: none;
+    background-color: rgb(253, 86, 2);
+    border-radius: 3px;
+}
+
+.CardCart-QuantityPlus {
+    border: none;
+    background-color: aquamarine;
+    border-radius: 3px;
+}
