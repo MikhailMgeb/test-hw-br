@@ -2,8 +2,8 @@
     min-width: 600px;
     max-width: 1100px;
     margin: auto;
-    display: flex;
     flex-direction: column;
+    display: flex;
 }
 
 .Cart-CartTitle {
@@ -12,5 +12,16 @@
     align-items: center;
     margin-bottom: 12px;
     padding: 16px 20px;
+}
+
+.Cart-List {
+    margin-top: 10px;
     display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.CardCart-Image {
+    height: 96px;
+    width: 96px;
 }

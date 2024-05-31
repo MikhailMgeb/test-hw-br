@@ -11,16 +11,15 @@ export type CartProduct = {
     Description: string,
     Quantity: number;
     Unit: string;
-    Currency: string;
+    Сurrency: string;
     Price: number;
     DiscountedPrice: number;
-    Images: [
-        {
-            FileName: string;
-            FileExtension: string;
-            Image: string;
-        }
-    ]
+    Images:
+    {
+        FileName: string;
+        FileExtension: string;
+        Image: string;
+    }[]
 }
 
 export type InitialCartState = {
