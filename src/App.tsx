@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { AppRoutes } from './Routes/Routes';
 
 import { Header } from './components/Header/Header';
-import { SideBar } from './components/SideBar/SideBar';
 import { Footer } from './components/Footer/Footer';
-import { cnApp } from './App.classname';
 import { BASE_URL } from './utils/constants';
 import { textsDropMenu } from './utils/content';
+import { cnApp } from './App.classname';
 
 import './App.css';
 

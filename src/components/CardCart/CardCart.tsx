@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { cnCardCart } from './CardCart.classname';
-import { CartProduct } from '../types/ReduxTypes';
+import { CartProduct } from '../types/types';
+import { AppDispatch, RootState } from '../../store/store';
+import { fetchAddOneProduct, fetchDeleteOneProduct, fetchDeleteProduct } from '../../store/FetchProducts/thunks';
 import deleteIcon from '../../assets/image/icons-delete.png';
 
 import './CardCart.css';
@@ -11,7 +14,27 @@ type CardCartProps = {
 }
 
 const CardCart: FC<CardCartProps> = ({ products }) => {
-    const { Id, Name, Description, Quantity, Unit, Сurrency, Price, DiscountedPrice, Images } = products;
+    const { UsedGuid } = useSelector((state: RootState) => state.header);
+    const dispatch = useDispatch<AppDispatch>();
+    const { Id, Name, Description, Quantity, Сurrency, Price, DiscountedPrice, Images } = products;
+
+    const getDeleteOneProductHandler = (id: number, UserGuid: string) => {
+        return () => {
+            dispatch(fetchDeleteOneProduct({ Id, UserGuid }));
+        }
+    }
+
+    const getAddOneProductHandler = (id: number, UserGuid: string) => {
+        return () => {
+            dispatch(fetchAddOneProduct({ Id, UserGuid }));
+        }
+    }
+
+    const handleRemoveProduct = (id: number, UserGuid: string) => {
+        return () => {
+            dispatch(fetchDeleteProduct({ Id, UserGuid }));
+        }
+    }
 
     return (
         <article className={cnCardCart()}>
@@ -24,11 +47,13 @@ const CardCart: FC<CardCartProps> = ({ products }) => {
             </div>
             <div className={cnCardCart('Quantity')}>
                 <div className={cnCardCart('QuantityControl')}>
-                    <button className={cnCardCart('QuantityMinus')}>-</button>
+                    <button onClick={getDeleteOneProductHandler(Id, UsedGuid)}
+                        className={cnCardCart('QuantityMinus')}
+                        disabled={Quantity > 1 ? false : true}>-</button>
                     <span className={cnCardCart('QuantityValue')}>{Quantity}</span>
-                    <button className={cnCardCart('QuantityPlus')}>+</button>
+                    <button onClick={getAddOneProductHandler(Id, UsedGuid)} className={cnCardCart('QuantityPlus')}>+</button>
                 </div>
-                {Quantity > 1 ? <div>цена за 1 шт. <span>{Price}</span></div> : null}
+                {Quantity > 1 ? <div>цена за 1 шт. <span>{Price}</span></div> : <span> </span>}
             </div>
             <div className={cnCardCart('Details')}>
                 <div className={cnCardCart('DetailsPrice')}>
@@ -38,7 +63,7 @@ const CardCart: FC<CardCartProps> = ({ products }) => {
                     </p>
                 </div>
                 <div>
-                    <button className={cnCardCart('ButtonRemove')}>
+                    <button onClick={handleRemoveProduct(Id, UsedGuid)} className={cnCardCart('ButtonRemove')}>
                         <img src={deleteIcon} alt='remove'></img>
                     </button>
                 </div>
