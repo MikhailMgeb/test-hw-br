@@ -1,0 +1,51 @@
+.CardCart {
+    display: flex;
+    gap: 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    align-items: center;
+    padding: 16px 20px;
+    min-height: 80px;
+    justify-content: space-between;
+}
+
+.CardCart-Description {
+    display: flex;
+    flex-direction: column;
+}
+
+.CardCart-Title {
+    font-size: 16px;
+    line-height: 1.375;
+    margin: 0;
+    text-align: left;
+}
+
+.CardCart-Text {
+    margin: 0;
+    max-width: 256px;
+    text-align: left;
+    line-height: 1.375;
+    font-size: 14px;
+}
+
+.CardCart-QuantityControl {
+    border-radius: 6px;
+    border: 2px solid #d4d6da;
+    width: 108px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.CardCart-ButtonRemove {
+    background-color: inherit;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.CardCart-ButtonRemove:active {
+    background-color: #d6d6d6;
+}
